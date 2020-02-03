@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { sendCategory } from "../../redux/actions/index";
 import "./sidenav.scss";
+
 /**
  * All book is default catgory
  * onClick event trigger to the action index file
