@@ -4,7 +4,10 @@ import "materialize-css/dist/css/materialize.min.css";
 import { Provider } from "react-redux";
 import store from "./redux/store/index";
 import App from "./components/App.js";
-
+/*
+# Rendering  App component 
+# /components/App.js
+*/
 render(
   <Provider store={store}>
     <App />

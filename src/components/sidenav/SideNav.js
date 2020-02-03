@@ -3,7 +3,11 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { sendCategory } from "../../redux/actions/index";
 import "./sidenav.scss";
-
+/**
+ * All book is default catgory
+ * onClick event trigger to the action index file
+ * [Business,Digital Media,Software Development,Web Applications]
+ */
 class SideNav extends Component {
   render() {
     return (
@@ -12,7 +16,7 @@ class SideNav extends Component {
           <h3>Book Store</h3>
           <hr />
           <ul>
-            {/* <li onClick={() => this.props.sendCategory("")}>All Books</li> */}
+            <li onClick={() => this.props.sendCategory("")}>All Books</li>
             <li onClick={() => this.props.sendCategory("Business")}>
               Business
             </li>

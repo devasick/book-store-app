@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { search } from "../../redux/actions/index";
 
+/**
+ * search box value to the action index file to render the data
+ */
+
 class SearchBar extends Component {
   render() {
     const { search, searchValue } = this.props;
@@ -12,7 +16,7 @@ class SearchBar extends Component {
         <input
           className='form-control search-box'
           placeholder='Search book by title...'
-          onChange={e => search(e.target.value)}
+          onChange={event => search(event.target.value)}
           value={searchValue}
         />
       </div>

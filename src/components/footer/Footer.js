@@ -1,5 +1,4 @@
 import React from "react";
-import "./footer.scss";
 const Footer = () => (
   <footer className='page-footer black'>
     <div className='container'>
@@ -13,26 +12,26 @@ const Footer = () => (
           </p>
         </div>
         <div className='col l3 s12'>
-          <h5 className='white-text'>Settings</h5>
+          <h5 className='white-text'>Links</h5>
           <ul>
             <li>
-              <a className='white-text' href='http://localhost:3000/'>
-                Link 1
+              <a className='white-text' href='http://asickweb.com/'>
+                Home
               </a>
             </li>
             <li>
-              <a className='white-text' href='http://localhost:3000/'>
-                Link 2
+              <a className='white-text' href='http://asickweb.com/'>
+                About
               </a>
             </li>
             <li>
-              <a className='white-text' href='http://localhost:3000/'>
-                Link 3
+              <a className='white-text' href='http://asickweb.com/'>
+                Career
               </a>
             </li>
             <li>
-              <a className='white-text' href='http://localhost:3000/'>
-                Link 4
+              <a className='white-text' href='http://asickweb.com/'>
+                Contact
               </a>
             </li>
           </ul>
@@ -41,23 +40,23 @@ const Footer = () => (
           <h5 className='white-text'>Connect</h5>
           <ul>
             <li>
-              <a className='white-text' href='http://localhost:3000/'>
-                Link 1
+              <a className='white-text' href='http://asickweb.com/'>
+                Facebook
               </a>
             </li>
             <li>
-              <a className='white-text' href='http://localhost:3000/'>
-                Link 2
+              <a className='white-text' href='http://asickweb.com/'>
+                Twitter
               </a>
             </li>
             <li>
-              <a className='white-text' href='http://localhost:3000/'>
-                Link 3
+              <a className='white-text' href='http://asickweb.com/'>
+                Linkedin
               </a>
             </li>
             <li>
-              <a className='white-text' href='http://localhost:3000/'>
-                Link 4
+              <a className='white-text' href='http://asickweb.com/'>
+                YouTube
               </a>
             </li>
           </ul>

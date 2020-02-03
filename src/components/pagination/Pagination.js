@@ -1,5 +1,12 @@
 import React from "react";
-
+/**
+ *
+ * @param {*} param0
+ * bookDatalength : lenth of the book array object
+ * click: onclick event will trigger
+ * currentPage
+ * booksPerPage: number of page and default is 10 book per page
+ */
 const Pagination = ({ bookDatalength, click, currentPage, booksPerPage }) => {
   const pageNumbers = [];
   const pageLength = bookDatalength;

@@ -12,16 +12,23 @@ export class BookList extends Component {
       books: [],
       currentPage: 1,
       booksPerPage: 10,
-      open: false,
+      open: false, //if true popup window will dsiplay
       selectedBook: null // Keep track of the selected book
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this); // this function for when we click the pagination
   }
-
+  /**
+   * Book data mounted to the DOM
+   */
   componentDidMount() {
-    this.props.getData();
+    if (this.props.books) {
+      this.props.getData();
+    }
   }
-
+  /**
+   * Updating pagination data for when click the category
+   * @param {*} previousProps  it checking previous props
+   */
   componentDidUpdate(previousProps) {
     // updating pagination to current page
     if (this.state.currentPage !== 1) {
@@ -48,15 +55,23 @@ export class BookList extends Component {
       selectedBook: bookId // When a book is clicked, mark it as selected
     });
   };
-
+  /**
+   * this function will call when close popup window
+   */
   onCloseModal = () => {
     this.setState({ open: false });
   };
-
+  /***
+   * truncateTitle for trim title size
+   */
   truncateTitle = string => {
     return string.length > 10 ? string.substring(0, 40) + "..." : string;
   };
-
+  /**
+   * renderBooks : display all books data
+   * truncateTitle : accessing truncateTitle function
+   * onClick : onOpenModal will call to open popup window
+   */
   renderBooks = data => {
     return data.map(row => {
       return (
@@ -67,15 +82,12 @@ export class BookList extends Component {
           <div className='card-image'>
             {row.thumbnailUrl ? (
               <img src={row.thumbnailUrl} alt={row.title} />
-            ) : (
-              <img
-                src='https://via.placeholder.com/150/0000FF/808080%20?Text=Digital.com%20C/O%20https://placeholder.com/'
-                alt={row.title}
-                width={200}
-              />
-            )}
+            ) : null}
           </div>
           <div className='book-title'>{this.truncateTitle(row.title)}</div>
+          <p className='author'>
+            <span>Author:</span> {row.authors}
+          </p>
         </div>
       );
     });
@@ -101,7 +113,7 @@ export class BookList extends Component {
             </div>
             <div className='col m6'>
               <p>
-                <span>Authors:</span> {book[0].authors}
+                <span>Author:</span> {book[0].authors}
               </p>
               <hr></hr>
               <p>
@@ -136,16 +148,14 @@ export class BookList extends Component {
     /*
      Pagination data
     */
-
     const { currentPage, booksPerPage } = this.state;
     const indexOfLastBook = currentPage * booksPerPage;
     const indexOfFirstBook = indexOfLastBook - booksPerPage;
     // rendering current book list
-    //if (this.props.books) {
+
     const currentBooks = this.props.books
       ? this.props.books.slice(indexOfFirstBook, indexOfLastBook)
       : "";
-    //}
 
     return (
       <div>
@@ -153,6 +163,15 @@ export class BookList extends Component {
           <h4 className='title'>
             {this.props.catagory ? this.props.catagory : "Books List"}
           </h4>
+          {/* Top Pagination numbers start here  */}
+          <div className='page'>
+            <Pagination
+              bookDatalength={this.props.books ? this.props.books.length : null}
+              booksPerPage={booksPerPage}
+              click={this.handleClick}
+              currentPage={this.state.currentPage}
+            />
+          </div>
           <div className='row'>
             {this.props.books
               ? this.renderBooks(this.props.books ? currentBooks : null)
@@ -180,7 +199,13 @@ export class BookList extends Component {
     );
   }
 }
-
+/**
+ *
+ * @param {*} state
+ * filter the category
+ * filter the search
+ * displaying all books
+ */
 function mapStateToProps(state) {
   let bookObj;
   if (state.catagory) {
